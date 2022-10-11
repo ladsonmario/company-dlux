@@ -214,9 +214,10 @@ const loadingModelCarsInTheAccordion = () => {
                             </div>
                             <div class="col-md-9">
                                 <div class="car--info">
-                                    <div class="car--model h3">${filterMark[0].id} ${filterMark[0].model}</div>
+                                    <div class="car--model h3">${filterMark[0].id} ${filterMark[0].model}</div>                                    
                                     <input type="hidden" class="car--model--value" value="${filterMark[0].model}" />                                                                            
                                     <img class="car--image img-fluid rounded" src="${filterMark[0].img}" alt="" />
+                                    <a class="link--car" href="./cars/${filterMark[0].id}/${filterMark[0].model}.html">Mais informações sobre ${filterMark[0].id} ${filterMark[0].model}</a>
                                     <table class="table table-striped my-3">     
                                         <tbody>
                                             <tr>
@@ -289,7 +290,10 @@ const getKeyAndItemMount = (event) => {
     CarInfo.querySelector('.exchange--car').innerHTML = Mark[key].exchange;
     CarInfo.querySelector('.day--car').innerHTML = Mark[key].day;
     CarInfo.querySelector('.warranty--car').innerHTML = Mark[key].warranty;
-    CarInfo.querySelector('.age--car').innerHTML = Mark[key].age;    
+    CarInfo.querySelector('.age--car').innerHTML = Mark[key].age; 
+    
+    CarInfo.querySelector('.link--car').innerHTML = `Mais informações sobre ${Mark[0].id} ${Mark[key].model}`;
+    CarInfo.querySelector('.link--car').setAttribute('href', `./cars/${Mark[0].id}/${Mark[key].model}.html`);
 }
 
 const removeAndAddClassActiveCarName = (key) => {
