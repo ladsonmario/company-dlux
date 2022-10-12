@@ -34,6 +34,7 @@ window.onscroll = (e) => {
 const start = () => {
     reset();
     addClickInTheMenu();
+    addClickInTheBody();
     loadingHours();    
     loadingModelCars();
     addAgeInTheForm();
@@ -83,6 +84,10 @@ const addClickInTheMenu = () => {
     });    
 }
 
+const addClickInTheBody = () => {
+    q('body').addEventListener('click', removeClassShowOfTheMenu);
+}
+
 const addFunctionDeliveryLocation = () => {
     q('.delivery--location').addEventListener('click', showDeliveryLocationSelect);
 }
@@ -129,10 +134,14 @@ const scrollToPosition = (to) => {
 }
 
 const scrollToIdOnClick = (event) => {
+    event.preventDefault();
     onScroll = false;
-    if(timer) { clearInterval(timer) }
-    timer = setTimeout(() => { onScroll = true }, 1000);
-	event.preventDefault();
+    if(timer) { 
+        clearInterval(timer);
+    }
+    timer = setTimeout(() => { 
+        onScroll = true 
+    }, 1000);	
 	const to = getScrollTopByHref(event.currentTarget) - 80;
 	scrollToPosition(to);
     qs('a[href^="#"].nav-link').forEach(item => {
@@ -143,10 +152,18 @@ const scrollToIdOnClick = (event) => {
     q('#navbarNavAltMarkup').classList.remove('show');
 }
 
+const removeClassShowOfTheMenu = () => {    
+    q('#navbarNavAltMarkup').classList.remove('show');
+}
+
 const leaveScrollInAccordionPosition = (event) => {
-    event.preventDefault();        
-    const to = getScrollTopByHref(event.currentTarget) - 80;
-    scrollToPosition(to);
+    event.preventDefault();    
+    setTimeout(() => {
+        const to = getScrollTopByHref(event.target) - 150;
+        if(to > 0) {
+            scrollToPosition(to);
+        }        
+    }, 500);          
 }
 
 const removeActiveMenu = () => {
