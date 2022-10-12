@@ -44,6 +44,7 @@ const start = () => {
     addFunctionInTheContinueReservation();
     addButtonCloseModal();
     addFunctionButtonTop();
+    addFunctionInTheButtonAccordion();
 }
 
 //RESET VALUES//
@@ -106,6 +107,12 @@ const addFunctionInTheContinueReservation = () => {
     q('#checkoutModalLabel').addEventListener('click', verifyDataInTheFormReservation);
 }
 
+const addFunctionInTheButtonAccordion = () => {
+    qs('.accordion-button').forEach(element => {
+        element.addEventListener('click', leaveScrollInAccordionPosition);
+    });
+}
+
 //RENDER CARS//
 const render = () => {
     loadingCars();
@@ -123,7 +130,7 @@ const scrollToPosition = (to) => {
 
 const scrollToIdOnClick = (event) => {
     onScroll = false;
-    if(timer) { clearInterval(timer); }
+    if(timer) { clearInterval(timer) }
     timer = setTimeout(() => { onScroll = true }, 1000);
 	event.preventDefault();
 	const to = getScrollTopByHref(event.currentTarget) - 80;
@@ -132,6 +139,14 @@ const scrollToIdOnClick = (event) => {
         item.classList.remove('active--menu');
     });
     event.target.classList.add('active--menu');
+
+    q('#navbarNavAltMarkup').classList.remove('show');
+}
+
+const leaveScrollInAccordionPosition = (event) => {
+    event.preventDefault();        
+    const to = getScrollTopByHref(event.currentTarget) - 80;
+    scrollToPosition(to);
 }
 
 const removeActiveMenu = () => {
@@ -198,14 +213,14 @@ const loadingModelCarsInTheAccordion = () => {
         let filterMark = cars.filter(mark => mark.id === item);
         accordionItem.innerHTML = `
             <div class="accordion-item">
-                <h2 class="accordion-header" id="heading${index}">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}" aria-expanded="true" aria-controls="collapse${index}">
-                    ${item}
-                    <img src="${markAndClass[2][index]}" alt="" />
-                </button>
+                <h2 class="accordion-header" id="heading${index}">                
+                    <button href="#${markAndClass[1][index]}" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}" aria-expanded="true" aria-controls="collapse${index}">                        
+                        ${item}
+                        <img src="${markAndClass[2][index]}" alt="" />                        
+                    </button>                    
                 </h2>
                 <div id="collapse${index}" class="accordion-collapse collapse" aria-labelledby="heading${index}" data-bs-parent="#accordion">
-                    <div class="accordion-body car--container">
+                    <div class="accordion-body car--container" id="${markAndClass[1][index]}">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="list--car">
@@ -268,13 +283,15 @@ const loadingCars = () => {
     if(!CarArea.querySelector('.car--name')) {
         for(let i in Mark) {        
             const itemName = document.createElement('a');
-            itemName.classList.add("list-group-item", "list-group-item-action", "car--name");
+            itemName.classList.add("list-group-item", "list-group-item-action", "car--name");                        
             itemName.innerHTML = Mark[i].model;
             itemName.setAttribute('key-item', i);
             itemName.addEventListener('click', getKeyAndItemMount);        
             CarArea.querySelector('.list-group').append(itemName);
+
+            qs('.accordion-item')[dataKeyIndex].querySelectorAll('.car--name')[0].classList.add('active');            
         }
-    }         
+    }    
 }
 
 const getKeyAndItemMount = (event) => {    

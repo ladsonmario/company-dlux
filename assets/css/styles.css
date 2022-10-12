@@ -146,8 +146,7 @@ header {
 }
 
 .information--info {
-    padding: 30px;
-    background-color: #ededed;
+    padding: 30px;    
     text-align: justify;
 }
 
@@ -304,6 +303,7 @@ header {
 .services--container p {
     font-size: 18px;
     color: #888;
+    text-align: justify;
 }
 
 .slide--container {
@@ -346,6 +346,7 @@ header {
 .history p {
     color: #555; 
     font-size: 18px;
+    text-align: justify;
 }
 
 .brothers {
