@@ -79,7 +79,7 @@
                             <select class="form-select select-hours" aria-label=".form-select-lg example" name="drop-off-time" id="drop-off-time"></select>
                         </div>    
                         <div class="mt-5">                            
-                            <input type="submit" id="checkoutModalLabel" class="btn btn-lg btn-outline-warning d-block w-100" value="Continuar Reserva" />
+                            <input type="submit" id="checkoutModalLabel" class="btn btn-lg btn-outline-warning d-block w-100" value="CONTINUAR RESERVA" />
                         </div>                        
                     </form>                                          
                 </div>
@@ -377,7 +377,7 @@
                                 </div>
                             </div>
                         <div class="col-md-6">
-                            <div class="h3">CARRO</div>
+                            <div class="h3">VIATURA</div>
                             <input id="selected-car" name="selected-car" type="hidden" value=""/>                                          
                             <div class="car--form--area">
                                 <span class="h5 car--name--form"></span>
@@ -407,15 +407,15 @@
                             <div class="alert hidden" id="checkout-form-msg"></div>
                             <div class="h3">INFORMAÇÃO PESSOAL</div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="first-name" name="first-name" placeholder="Enter your first name">
+                                <input type="text" class="form-control" id="first-name" name="first-name" placeholder="Enter your first name" required>
                                 <label for="floatingInput">Primeiro Nome</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Enter your last name">
+                                <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Enter your last name" required>
                                 <label for="floatingPassword">Último Nome</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="phone-number" name="phone-number" placeholder="Enter your phone number">
+                                <input type="text" class="form-control" id="phone-number" name="phone-number" placeholder="Enter your phone number" required>
                                 <label for="floatingPassword">Num. Tel.</label>
                             </div>
                             <div class="mb-3 input-group">
@@ -424,23 +424,23 @@
                                 <span class="input-group-text" id="inputGroup-sizing-default">anos</span>
                             </div>                                            
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="email-address" name="email-address" placeholder="Enter your email address">
+                                <input type="email" class="form-control" id="email-address" name="email-address" placeholder="Enter your email address" required>
                                 <label for="floatingInput">Endereço de E-mail</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="email-address-confirm" name="email-address-confirm" placeholder="Confirm your email address">
+                                <input type="email" class="form-control" id="email-address-confirm" name="email-address-confirm" placeholder="Confirm your email address" required>
                                 <label for="floatingPassword">Confirmar E-mail</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="address" name="address" placeholder="Enter your Street an No.">
+                                <input type="text" class="form-control" id="address" name="address" placeholder="Enter your Street an No." required>
                                 <label for="floatingPassword">Morada</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="city" name="city" placeholder="Enter your City">
+                                <input type="text" class="form-control" id="city" name="city" placeholder="Enter your City" required>
                                 <label for="floatingPassword">Cidade</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="zip-code" name="zip-code"  placeholder="Enter your Zip Code">
+                                <input type="text" class="form-control" id="zip-code" name="zip-code"  placeholder="Enter your Zip Code" required>
                                 <label for="floatingPassword">Código Postal</label>
                             </div>                                            
                             <div class="form-check">
@@ -453,8 +453,8 @@
                     </div>
                     <hr/>
                     <div class="buttons--form">
-                        <button type="button" class="btn btn-lg btn-secondary btn--close">Cancelar</button>
-                        <button type="submit" class="btn btn-lg btn-warning">Reservar</button>                                    
+                        <button type="button" class="btn btn-lg btn-secondary btn--close mx-3">CANCELAR</button>
+                        <input type="submit" class="btn btn-lg btn-warning" value="RESERVAR" />
                     </div>                                    
                 </form>
             </div> 

@@ -83,14 +83,16 @@ $.ajax({
 
     if('success' == data.result)
     {
-        $('#checkout-form-msg').css('visibility','visible').hide().fadeIn().removeClass('hidden').addClass('alert-success');
-        $('#checkout-form-msg').html(data.msg[0]);
+        $('#car-select-form-msg').css('visibility','visible').hide().fadeIn().removeClass('alert-danger').removeClass('hidden').addClass('alert-success');
+        $('#car-select-form-msg').html(data.msg[0]);
         $('#checkout-form button[type=submit]').removeAttr('disabled');
+        $('#modal--form').css('display', 'none');
 
         setTimeout(function(){
         $('.modal').modal('hide');
-        $('#checkout-form-msg').addClass('hidden');
-        $('#checkout-form-msg').removeClass('alert-success');
+        $('#car-select-form-msg').addClass('hidden');
+        $('#car-select-form-msg').addClass('alert-danger');
+        $('#car-select-form-msg').removeClass('alert-success');
 
         $('#checkout-form')[0].reset();
         $('#car-select-form')[0].reset();
